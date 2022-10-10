@@ -1,0 +1,58 @@
+[project]
+name = "personal-site"
+version = "1.0.0"
+description = "API for my personal website"
+authors = [
+    {name = "Olly de Sousa", email = "0lly@protonmail.com"},
+]
+dependencies = [
+    "quart>=0.18.3",
+    "boto3>=1.24.89",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+[project.optional-dependencies]
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=22.10.0",
+    "isort>=5.10.1",
+    "mypy>=0.982",
+    "flake8>=5.0.4",
+    "vulture>=2.6",
+    "pytest>=7.1.3",
+    "pytest-asyncio>=0.19.0",
+]
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.vulture]
+min_confidence = 100
+
+[tool.pytest.ini_options]
+addopts = "--showlocals"
+asyncio_mode = "auto"
+pythonpath = ["src"]
+
+[tool.pdm.scripts]
+format-black = "black src/ tests/"
+format-isort = "isort src tests"
+format = {composite = ["format-black", "format-isort"]}
+lint-black = "black --check --diff src/ tests/"
+lint-flake8 = "flake8 src/ tests/"
+lint-isort = "isort --check --diff src tests"
+lint-mypy = "mypy src/backend tests"
+lint-vulture = "vulture src"
+lint = {composite = ["lint-black", "lint-flake8", "lint-isort", "lint-mypy", "lint-vulture"]}
+test = "pytest tests/"
+start = "quart --app src/backend/run.py run --port 5050"
