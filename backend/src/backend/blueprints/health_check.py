@@ -5,4 +5,4 @@ blueprint = Blueprint("health", __name__)
 
 @blueprint.get("/health/")
 async def health() -> ResponseReturnValue:
-    return { "health": "ok" }
+    return {"health": "ok"}
