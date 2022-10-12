@@ -3,6 +3,7 @@ from typing import Dict
 
 import boto3
 from quart import Blueprint, ResponseReturnValue, request
+from quart_cors import route_cors
 
 from backend.lib.api_error import APIError
 from constants import CV_FILE_NAME, CV_S3_BUCKET
@@ -12,6 +13,11 @@ blueprint = Blueprint("cv", __name__)
 
 # fetches the cv document from S3
 @blueprint.get("/cv/")
+@route_cors(
+    allow_headers=["content-type"],
+    allow_methods=["GET"],
+    allow_origin=["*"],
+)
 async def fetch_cv() -> ResponseReturnValue:
     try:
         # initialise the s3 client
