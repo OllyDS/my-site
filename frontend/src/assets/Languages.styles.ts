@@ -5,7 +5,7 @@ const style = stylesheet({
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
-        marginTop: -24
+        marginTop: -24,
     },
     text: {
         fontFamily: 'Rubik',
@@ -14,8 +14,8 @@ const style = stylesheet({
     },
     image: {
         padding: 8,
-        width: 72
-    }
+        width: 72,
+    },
 });
 
 export { style };

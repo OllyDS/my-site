@@ -1,4 +1,4 @@
-import { sentenceCase } from "./utils";
+import { sentenceCase } from './utils';
 
 describe('#sentenceCase()', () => {
     it('should convert a lowercase string to sentence case.', () => {
