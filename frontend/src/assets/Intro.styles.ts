@@ -6,7 +6,7 @@ const style = stylesheet({
         justifyContent: 'center',
         textAlign: 'center',
     },
-    into: {
+    intro: {
         // color: whitesmoke;
         fontFamily: 'Rubik',
         fontSize: 30,

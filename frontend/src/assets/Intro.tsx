@@ -9,7 +9,7 @@ type IntroType = {
 
 const Intro = ({ city, currentRole, firstName }: IntroType) => (
     <div className={style.introWrapper}>
-        <p className={style.into}>
+        <p className={style.intro}>
             I'm {sentenceCase(firstName)}, a {currentRole} based in {sentenceCase(city)}.
         </p>
     </div>

@@ -1,6 +1,7 @@
 import { UserInfo } from '../../App.types';
 import { Hello } from '../../assets/Hello';
 import { Intro } from '../../assets/Intro';
+import { Languages } from '../../assets/Languages';
 import { style } from './Home.styles';
 
 type HomePageType = {
@@ -16,6 +17,7 @@ const HomePage = ({ user }: HomePageType) => {
                 currentRole={user?.employment?.['current']?.role}
                 city={user?.location?.city}
             />
+            <Languages />
         </div>
     );
 };
