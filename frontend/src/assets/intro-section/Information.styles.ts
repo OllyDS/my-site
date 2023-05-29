@@ -22,6 +22,12 @@ const S = {
         padding: 8px;
         width: 72px;
     `,
+    GithubImage: styled.img`
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 8px;
+        width: 72px;
+    `,
 };
 
 export { S };
