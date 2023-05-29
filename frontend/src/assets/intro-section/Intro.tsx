@@ -1,5 +1,5 @@
-import { sentenceCase } from '../utils/utils';
-import { style } from './Intro.styles';
+import { sentenceCase } from '../../utils/utils';
+import { S } from './Intro.styles';
 
 type IntroType = {
     city: string;
@@ -8,11 +8,11 @@ type IntroType = {
 };
 
 const Intro = ({ city, currentRole, firstName }: IntroType) => (
-    <div className={style.introWrapper}>
-        <p className={style.intro}>
+    <S.IntroWrapper>
+        <S.Intro>
             I'm {sentenceCase(firstName)}, a {currentRole} based in {sentenceCase(city)}.
-        </p>
-    </div>
+        </S.Intro>
+    </S.IntroWrapper>
 );
 
 export { Intro };

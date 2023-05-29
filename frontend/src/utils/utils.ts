@@ -5,4 +5,4 @@
 export const sentenceCase = (str: string) =>
     typeof str === 'string'
         ? str.charAt(0).toUpperCase() + str.toLowerCase().slice(1, str.length)
-        : new Error(`${str} is not a valid string.`);
+        : str;

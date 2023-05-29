@@ -1,16 +1,22 @@
+import { useState } from 'react';
+
 import { UserInfo } from '../../App.types';
-import { Hello } from '../../assets/Hello';
-import { Intro } from '../../assets/Intro';
-import { Languages } from '../../assets/Languages';
-import { style } from './Home.styles';
+import { CV } from '../../assets/intro-section/CV';
+import { Hello } from '../../assets/intro-section/Hello';
+import { Information } from '../../assets/intro-section/Information';
+import { Intro } from '../../assets/intro-section/Intro';
+import { Languages } from '../../assets/intro-section/Languages';
+import { S } from './Home.styles';
 
 type HomePageType = {
     user: UserInfo;
 };
 
 const HomePage = ({ user }: HomePageType) => {
+    const [displayCV, setDisplayCV] = useState(false);
+
     return (
-        <div className={style.background}>
+        <S.Background onClick={() => displayCV && setDisplayCV(false)}>
             <Hello />
             <Intro
                 firstName={user?.first_name}
@@ -18,7 +24,10 @@ const HomePage = ({ user }: HomePageType) => {
                 city={user?.location?.city}
             />
             <Languages />
-        </div>
+            <S.Divider />
+            <Information setDisplayCV={setDisplayCV} />
+            {displayCV && <CV />}
+        </S.Background>
     );
 };
 

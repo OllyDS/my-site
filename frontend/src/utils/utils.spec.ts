@@ -21,6 +21,6 @@ describe('#sentenceCase()', () => {
 
     it('should return an error message for a non-string type', () => {
         const input = 123 as any;
-        expect(sentenceCase(input)).toEqual(Error(`${input} is not a valid string.`));
+        expect(sentenceCase(input)).toEqual(123);
     });
 });

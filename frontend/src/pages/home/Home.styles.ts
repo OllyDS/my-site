@@ -1,11 +1,19 @@
-import { stylesheet } from 'typestyle';
+import styled from "styled-components";
+import { Palette } from "../../utils/theme";
 
-const style = stylesheet({
-    background: {
-        backgroundImage: 'linear-gradient(white, grey)',
-        height: '100%',
-        width: '100%',
-    },
-});
+const S = {
+    Background: styled.div`
+        background-image: linear-gradient(white, grey);
+        min-height: 100vh;
+        width: 100%;
+    `,
 
-export { style };
+    Divider: styled.div`
+        background-color: ${Palette.DarkGrey};
+        height: 1px;
+        margin: 10px auto 20px;
+        width: 600px;
+    `,
+};
+
+export { S };
